@@ -1,4 +1,4 @@
-# ECG_AD(Anomaly Detection)
+# ECG_AD(Anomaly Detection on ECGs)
 
 Train an autoencoder to detect anomaly.
 
@@ -45,9 +45,50 @@ You can find the dataset [(Here)](http://www.timeseriesclassification.com/descri
  width="600" height="400" border="10" /></a>
 </p>
 
+*Data displays:
+
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/dataset.png?raw=true">
+
 # Which type of the task is it? 
 
 Since this is a labeled data set, it can be regarded as a supervised learning problem. 
 
+# Build the model
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/model.png?raw=true">
+
+# Training and Testing
+Firstly , you should normalize the data via the linear method. The training data's labels r all  1 instead of 0.
+
+* A Normal ECG figure:
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/A%20normal%20ECG.png?raw=true">
+
+* AN Anomalous ECG figure:
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/An%20anomalous%20ECG.png?raw=true">
 
 
+* Becuase the autoencoder only uses normal ECG data for training, but uses all test sets for evaluation.
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/training_only_train%20set.png?raw=true">
+
+* Training error and Validation error
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/train_validation.png?raw=true">
+
+* If the reconstruction error is greater than one standard deviation of the normal training example, you will quickly classify the ECG as abnormal. First, let us draw a normal
+
+ECG from the training set, and perform reconstruction after encoding and decoding with an autoencoder, as well as reconstruction errors.
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/reconstruction%20error.png?raw=true">
+
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/anomalous%20reconstruction%20error.png?raw=true">
+
+* Train Loss and Test Loss
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/Train%20Loss.png?raw=true">
+
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/Test%20Loss.png?raw=true">
+
+# Evaluation
+  When detecting the reconstruction error of abnormal samples in the test set, the reconstruction error of most samples will be much larger than the threshold.By changing the threshold, the accuracy and recall rate of the classifier can be adjusted.
+  
+* The result:
+<img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/evaluation.png?raw=true"> 
+
+The main code is from [(Here)](https://www.kaggle.com/mineshjethva/ecg-anomaly-detection) . 
+I have corrected some errors,collected the datasets, interpreted the code in Chinese.
