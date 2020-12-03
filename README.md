@@ -73,8 +73,8 @@ Firstly , you should normalize the data via the linear method. The training data
 <img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/train_validation.png?raw=true">
 
 * If the reconstruction error is greater than one standard deviation of the normal training example, you will quickly classify the ECG as abnormal. First, let us draw a normal
-
 ECG from the training set, and perform reconstruction after encoding and decoding with an autoencoder, as well as reconstruction errors.
+
 <img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/reconstruction%20error.png?raw=true">
 
 <img src="https://github.com/kanesp/ECG_AD/blob/main/data/pic/anomalous%20reconstruction%20error.png?raw=true">
