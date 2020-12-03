@@ -48,3 +48,6 @@ You can find the dataset [(Here)](http://www.timeseriesclassification.com/descri
 # Which type of the task is it? 
 
 Since this is a labeled data set, it can be regarded as a supervised learning problem. 
+
+
+
